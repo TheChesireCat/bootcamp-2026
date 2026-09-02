@@ -21,38 +21,9 @@ Ankit Ramakrishnan · Minami Ueda
 
 # How this session works
 
-- **~45 min** guided speed-run: what agents are, setup, the loop, tips
-- **~60 min** <span class="pill">Hackathon</span> pick one of three projects:
-  - **Dashboard website** · **Extend your Session 1 work** · **Recreate a paper**
+- **~50 min** guided speed-run: setup, the basics, and how to drive an agent well
+- **~55 min** <span class="pill">Hackathon</span> pick one of three projects to build
 - **~15 min** share-outs
-
----
-
-<!-- _class: divider -->
-
-# Part 1: Speed-run
-
-<span class="brandmark">NetSI Bootcamp 2026</span>
-
----
-
-# What is a coding agent?
-
-> An LLM that can read files, run commands, and edit code, in a loop
-
-- You state a *goal*, it plans, acts, checks its own work, and repeats
-- It works on your **whole project**, in your **terminal**, not just one snippet
-- You stay the reviewer: it drafts, *you* decide what to keep
-
-Think pair-programmer that can also run the tests and read the errors.
-
----
-
-# The loop
-
-![w:900](../assets/diagrams/agent-loop.svg)
-
-You give a goal. It plans, acts, and checks. You review the result.
 
 ---
 
@@ -62,120 +33,189 @@ You give a goal. It plans, acts, and checks. You review the result.
 
 1. Go to [claude.northeastern.edu](https://claude.northeastern.edu), click **First time? Start here**, accept the guidelines
 2. Log in with **SSO** (your NU email + credentials)
-3. Install **Claude Code** (terminal) and **Claude Desktop**: [code.claude.com/docs/quickstart](https://code.claude.com/docs/en/quickstart)
+3. Install **Claude Code**: [code.claude.com/docs/quickstart](https://code.claude.com/docs/en/quickstart) (terminal + desktop)
 
 Generous NU usage limits. Prefer something else? OpenAI Codex or opencode (open source) work too.
 
 ---
 
-# Claude Code in 30 seconds
+# Open both: the GUI and the terminal
 
-Open a terminal *inside your project* and run `claude`:
+<span class="pill">Hands-on Session</span>
 
-```
-$ claude
-> load edges.csv and print the degree distribution
+- **Claude Desktop** (the GUI): chat, drag in files and images, quick questions
+- **Claude Code** (the terminal): run `claude` inside a project, it reads and edits your files and runs commands
+- Same account, same models. Use the GUI to think, the terminal to build
 
-  I'll write a short script, run it, and show you the output.
-  ... (creates degree.py, runs it) ...
-  Top degrees: 42, 39, 31, ...  Saved a histogram to degree.png.
-```
-
-It reads your files, proposes changes, and can run them. You approve as it goes.
-
-Run it in **VS Code's integrated terminal** and it connects to the editor: reads your
-lint/type errors and shows edits as **inline diffs**.
+<!-- TODO images: ../assets/screenshots/claude-desktop.png (GUI) and ../assets/screenshots/claude-terminal.png (terminal) -->
+<span class="caption">[ screenshots to add: Claude Desktop (left) and Claude Code in a terminal (right) ]</span>
 
 ---
 
-# The core loop in practice
+<!-- _class: divider -->
 
-- Ask for an **outcome**, not keystrokes: *"make the plot log-scale and rerun it"*
-- Let it **plan first** on anything non-trivial, and read the plan before you approve
-- Work in **small steps**: run it, check it, then continue
-- When a task is done, **start fresh** so old context doesn't leak in
+# Basics
+
+<span class="brandmark">NetSI Bootcamp 2026</span>
 
 ---
 
-# Best practice: a project memory file
+# What is an agent?
 
-> `CLAUDE.md` tells the agent your conventions, it reads this file automatically
+> An LLM that can read files, run commands, and edit code, in a loop
 
-- Put it at the repo root. Claude Code loads it every session
-- `/init` will draft one for you from the codebase
-- Keep it short: stack, how to run things, do's and don'ts
-- Prefer `AGENTS.md` (a cross-tool convention)? Add a line `@AGENTS.md` in `CLAUDE.md` so Claude reads it too
+- You give a *goal*; it plans, acts, checks its own work, and repeats
+- It works on your **whole project**, in your terminal, not just one snippet
+- You stay the reviewer: it drafts, *you* decide what to keep
+
+Think pair-programmer that can also run the tests and read the errors.
+
+---
+
+# CLAUDE.md: your project's system prompt
+
+> Standing instructions the agent reads *every* session
+
+- `/init` drafts one from your codebase. Keep it short: stack, how to run things, do's and don'ts
+- The more it knows about your project, the better it performs
+- Curious what strong system prompts look like? Read Anthropic's published ones: [platform.claude.com/docs](https://platform.claude.com/docs/en/release-notes/system-prompts/overview)
 
 ```md
 # CLAUDE.md
-- Python 3.11, networkx + matplotlib. Run jobs with `sbatch`, not on the login node.
+- Python 3.11, networkx + matplotlib. Submit with `sbatch`, never compute on the login node.
 - Small diffs. Show me a plan before editing more than one file.
 ```
 
 ---
 
-# Tips: work with it, not against it
+# Which model?
 
-- **Plan mode**, `Shift+Tab` cycles into it. It reads the code and writes a plan before touching files
-- **Make it prove it**, the #1 habit: a quick test, a linter, or a UI screenshot so it checks its own work
-- **Keep context clean**, one task per session. `/clear` when you switch, `/compact` a long one
-- **Be specific**, say what and where, so it doesn't read the whole project to guess
+> Pick the brain for the job (switch with `/model`)
 
----
+- **Opus** (4.8, 5): the hardest reasoning, planning, and gnarly bugs
+- **Sonnet**: fast and balanced, most day-to-day implementation
+- **Haiku**: cheap and quick, simple mechanical tasks
 
-# Git is your safety net
-
-> Commit before a big change, so you can always go back
-
-- **Commit first**, before you let it make a big change
-- `git diff` to review exactly what it changed
-- Keep it? `git commit`. Want to toss one file? `git restore <file>` (discards just that file)
-- Let the agent run git for you, but understand each step. That's what makes experimenting safe
+Common pattern: **plan with Opus, implement with Sonnet**.
 
 ---
 
-# Tips: power features (when you're ready)
+# Track everything with git
 
-- **Model choice**, use a stronger model to plan, a faster one to implement
-- **Skills**, reusable `SKILL.md` guides that package a workflow or your house rules
-- **Subagents**, spin up a helper for a side task (review, debug). It burns your limits faster
-- **MCP**, connectors to external tools and data. Add sparingly to save context
+> Commit often so you can always go back
 
----
-
-# Guardrails (say them out loud)
-
-- **Read what it runs.** You own every command it executes
-- **Verify claims.** *"Tests pass"* means *you* saw them pass
-- **No secrets** in prompts (keys, passwords, private data)
-- The agent is **confident even when wrong**. Stay skeptical
+- **Commit frequently**, and **push** to a remote (GitHub) as an off-machine backup
+- `git diff` to review what the agent changed; `git restore <file>` to undo just one file
+- Let the agent run git for you, but understand each step. That is what makes experimenting safe
 
 ---
 
-# Read papers and find the literature
+# Text is supreme: work in markdown
 
-- **Read a paper:** pull out **claim ▸ evidence ▸ interpretation**, explain the method, check the math, find the weak points
-- **At the start of a topic:** map the area, name the seminal papers, get a sensible reading order
-- **Deep in it:** find the paper you're missing, what cites this, the related work you skipped
-- **Verify:** agents *invent* citations. Confirm every reference actually exists
+> Notes, ideas, plans, and docs, all as plain `.md`
 
----
-
-# Synthesize and hypothesize
-
-- **Synthesize:** combine findings across papers into a comparison table, surface contradictions and gaps
-- **Generate hypotheses:** brainstorm mechanisms, ask *"what would falsify this?"*, stress-test an idea before you sink weeks into it
-- It widens the search. *You* decide which threads are worth chasing
+- Store your thinking where the agent can read it: notes, half-baked ideas, plans, design docs
+- Text is **versionable, diffable, and agent-native**. A plan in markdown beats a plan in your head
+- (LaTeX source is text too. wink wink)
 
 ---
 
-# Prototype and unblock
+<!-- _class: divider -->
 
-- **Quick prototype:** turn an idea into a runnable script or notebook in minutes, just to sanity-check it
-- **Escape dependency hell:** it reads the error, fixes the env, pins versions, gets you running again
-- **The grunt work:** Slurm/conda, messy notebook ▸ clean script, reshape data, explain a stack trace, review for bugs
+# Driving the agent
 
-> It drafts and scaffolds. *You* write the science and verify every result.
+<span class="brandmark">NetSI Bootcamp 2026</span>
+
+---
+
+# Start a task: seed context, then brainstorm
+
+- `/init <idea>` to give the agent a starting point
+- **Brainstorm here.** Throw new, not-fully-formed thoughts at it and talk them through
+- This early back-and-forth builds the context that makes everything after it better
+
+---
+
+# Plan before you build: `/plan`
+
+> Planning is the highest-leverage step
+
+- It asks *you* questions. **Iterate over the plan several times** before any code
+- Later: skills like `/grill-me` push you with harder questions
+- **You** make the decisions, not the agent, especially:
+  - architecture and design
+  - anything that is messy to undo once you start
+
+---
+
+# Stay in control
+
+- Press **`esc`** to stop it mid-run: **stop and steer**. Talk to it the moment you see a mistake
+- It sounds **confident even when it is wrong**. You own every command it runs, read before you approve
+- **Never** put secrets (keys, passwords, private data) into a prompt
+- **Do NOT use `--dangerously-skip-permissions`** yet. It acts without asking and can wipe a week's work. Only once you are confident and the task is safe
+
+---
+
+# Skills: reusable instructions
+
+> Packaged text for tasks you repeat
+
+- A skill teaches a workflow once, then you reuse it: `review`, learn a package, a house style
+- Have the agent **mine your history** for skills worth extracting
+- Skills enrich context, and more context means better performance
+- Examples: `presentations`, `grill`, `review`. Build your own
+
+---
+
+# Subagents: clones with a fresh start
+
+> A helper agent that starts from only what the parent tells it
+
+- Great for a self-contained side task (a review, a focused search)
+- They burn **lots of tokens**, and it grows fast the more you spawn. Use them judiciously
+- Match the model to the job: rename files `▸` Sonnet/Haiku; research overview `▸` Opus
+
+---
+
+<!-- _class: divider -->
+
+# Using it for research
+
+<span class="brandmark">NetSI Bootcamp 2026</span>
+
+---
+
+# Learning
+
+> Use a strong model here (Opus-level)
+
+- **Explain it at my level:** "like I'm 5 / an undergrad / a postgrad / an expert"
+- **Deep research** (Claude, ChatGPT, Gemini): let it scrape widely and hand you an overview
+- **Starting a topic?** Map the area, name the seminal papers, get a sensible reading order
+- Prompt ideas: [Wharton GenAI prompt library](https://gail.wharton.upenn.edu/prompt-library/)
+
+---
+
+# Prototyping
+
+> The cost of *trying* an idea is now near zero
+
+- Spin up a **quick-and-dirty prototype** of a research or project idea. If it works, go back, understand *why*, then clean and extend it
+- **Escape dependency hell** on the cluster (story time: ask Minami)
+- **Debugging?** Use it like Stack Overflow or Google: paste the error, get unstuck
+
+<!-- TODO image: Stack Overflow usage decline (src: storage.ghost.io/.../image-4.png, a tweet screenshot) -->
+<span class="caption">[ image to add: Stack Overflow question volume falling off a cliff ]</span>
+
+---
+
+# Understanding and quality
+
+- **Review and grill:** ask it to review the work, then **grill it with questions, iteratively**
+- **Testing:** it writes unit tests fine, but does not know your domain well enough to test what *matters*. Give it more context (talk to it, add papers, edit `CLAUDE.md`)
+- **Visual testing:** for plots and UIs, tell it to *look at the image* and fix overlaps, bad colors, obvious glitches (it can see images)
+- **Refactoring:** better names, readable code, split concerns (which also makes it testable)
 
 ---
 
@@ -183,7 +223,7 @@ lint/type errors and shows edits as **inline diffs**.
 
 > Set a goal and guardrails, then let it loop overnight
 
-![w:540](../assets/screenshots/karpathy_autoresearch.png)
+![w:520](../assets/screenshots/karpathy_autoresearch.png)
 
 <span class="caption">Karpathy's [autoresearch](https://github.com/karpathy/autoresearch): an agent edits `train.py`, runs ~100 five-minute experiments overnight, keeping the ones that lower validation loss (`val_bpb`).</span>
 
@@ -253,22 +293,6 @@ Prompts, starter files, checklists: **`hackathon/agentic/`**
 ![w:940](../assets/screenshots/hnm_clustering_plots.png)
 
 <span class="caption">Your targets: **(a)** scale-free P(k) &nbsp;·&nbsp; **(b)** C(k) ~ 1/k, the hierarchy fingerprint &nbsp;·&nbsp; **(c)** clustering stays constant as N grows</span>
-
----
-
-# A good first prompt
-
-Vague in, vague out. Give it a goal, context, and a done-condition:
-
-```
-Goal: a static index.html that loads network.json and draws the
-      network with nodes sized by degree, plus a degree histogram.
-Context: network.json has nodes[{id,degree}] and links[{source,target}].
-Use vis-network from a CDN, no build step.
-Done when: the page opens with no console errors and the node count
-      shown on the page matches network.json.
-Plan it first, then build in small steps.
-```
 
 ---
 
