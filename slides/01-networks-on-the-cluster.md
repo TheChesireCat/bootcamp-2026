@@ -585,6 +585,7 @@ Full list, plus free platforms and cheap rentals: *`RESOURCES.md`*
 # Keep learning
 
 - Explorer docs: [rc-docs.northeastern.edu](https://rc-docs.northeastern.edu)
+- Northeastern IT alerts: join [**`#northeastern-it-status`**](https://nunetsi.slack.com/archives/C080CNUT7LK) in Slack
 - **GitHub Student Pack** (free Copilot, credits): [education.github.com/pack](https://education.github.com/pack)
 - Learn git by doing: [learngitbranching.js.org](https://learngitbranching.js.org)
 - PHYS7332 network science book: [asmithh.github.io/network-science-data-book](https://asmithh.github.io/network-science-data-book)
