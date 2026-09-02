@@ -5,13 +5,14 @@ MARP = npx --yes @marp-team/marp-cli@4 --config-file ./marp.config.js --allow-lo
 SLIDES = $(wildcard slides/*.md)
 DIST = dist
 
-.PHONY: help setup html pdf watch clean
+.PHONY: help setup html pdf watch clean release
 
 help:
 	@echo "make setup   - install marp-cli locally (one time)"
 	@echo "make html    - build HTML decks into $(DIST)/"
 	@echo "make pdf     - build PDF decks into $(DIST)/"
 	@echo "make watch   - live-preview server with hot reload"
+	@echo "make release - rebuild PDFs and push the student subset to the main branch"
 	@echo "make clean   - remove $(DIST)/"
 
 setup:
@@ -35,6 +36,10 @@ pdf: $(DIST)
 
 watch:
 	$(MARP) --input-dir slides --watch --server
+
+# Build fresh PDFs, then sync the student subset (hackathon + docs + slide PDFs) to `main`.
+release: pdf
+	@bash scripts/release.sh
 
 clean:
 	rm -rf $(DIST)
