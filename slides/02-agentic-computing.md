@@ -106,6 +106,7 @@ Rule of thumb: **use Opus for almost everything**, drop to Sonnet only for very 
 
 - **Commit frequently**, and **push** to a remote (GitHub) as an off-machine backup
 - `git diff` to review what the agent changed; `git restore <file>` to undo just one file
+- **Browse the history visually** in VS Code's **Timeline** view (Explorer sidebar), no `git log` needed
 - Let the agent run git for you, but understand each step. That is what makes experimenting safe
 
 ---
