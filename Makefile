@@ -27,6 +27,7 @@ html: $(DIST)
 		$(MARP) $$f -o $(DIST)/$$(basename $$f .md).html; \
 	done
 	@node scripts/add-favicon.mjs
+	@node scripts/external-links.mjs
 
 pdf: $(DIST)
 	@for f in $(SLIDES); do \
