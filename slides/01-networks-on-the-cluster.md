@@ -85,6 +85,8 @@ A single 64-core box hits walls:
 - **Job**, a resource request + the commands to run
 - **Job array**, many similar jobs from one script (`--array=1-N`)
 
+<span class="srcnote">Partition details: <a href="https://rc.northeastern.edu/partitions/">rc.northeastern.edu/partitions</a></span>
+
 ---
 
 # Slurm runs the show
