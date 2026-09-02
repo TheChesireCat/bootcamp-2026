@@ -208,8 +208,7 @@ Rule of thumb: **use Opus for almost everything**, drop to Sonnet only for very 
 - **Escape dependency hell** on the cluster (story time: ask Minami)
 - **Debugging?** Use it like Stack Overflow or Google: paste the error, get unstuck
 
-<!-- TODO image: Stack Overflow usage decline (src: storage.ghost.io/.../image-4.png, a tweet screenshot) -->
-<span class="caption">[ image to add: Stack Overflow question volume falling off a cliff ]</span>
+![w:330](../assets/screenshots/stackoverflow_decline.png)
 
 ---
 
