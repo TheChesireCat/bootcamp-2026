@@ -92,11 +92,11 @@ Think pair-programmer that can also run the tests and read the errors.
 
 > Pick the brain for the job (switch with `/model`)
 
-- **Opus** (4.8, 5): the hardest reasoning, planning, and gnarly bugs
-- **Sonnet**: fast and balanced, most day-to-day implementation
-- **Haiku**: cheap and quick, simple mechanical tasks
+- **Opus** (4.8, 5): your **default**. Planning, implementation, hard reasoning, gnarly bugs
+- **Sonnet**: faster and cheaper, for basic or mechanical tasks
+- **Haiku**: cheapest, for trivial tasks
 
-Common pattern: **plan with Opus, implement with Sonnet**.
+Rule of thumb: **use Opus for almost everything**, drop to Sonnet only for very basic things.
 
 ---
 
