@@ -62,7 +62,7 @@ You give a goal. It plans, acts, and checks. You review the result.
 
 1. Go to [claude.northeastern.edu](https://claude.northeastern.edu), click **First time? Start here**, accept the guidelines
 2. Log in with **SSO** (your NU email + credentials)
-3. We'll use **Claude Code** (in the terminal) and **Claude Desktop**
+3. Install **Claude Code** (terminal) and **Claude Desktop**: [code.claude.com/docs/quickstart](https://code.claude.com/docs/en/quickstart)
 
 Generous NU usage limits. Prefer something else? OpenAI Codex or opencode (open source) work too.
 
