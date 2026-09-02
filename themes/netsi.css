@@ -1,0 +1,218 @@
+/* @theme netsi */
+/*
+ * NetSI PhD Bootcamp theme for Marp.
+ * Mirrors Minami Ueda's 2025 HPC deck: bold blue titles, black body on white,
+ * coral accents for emphasis, green "Hands-on Session" pills, big code blocks.
+ */
+
+@import 'default';
+
+:root {
+  --netsi-blue: #1a4fd6;   /* titles, headings, links */
+  --netsi-coral: #e8543f;  /* emphasis / "speed" callouts */
+  --netsi-green: #34a06f;  /* hands-on pills */
+  --netsi-yellow: #f2b705; /* logo accent */
+  --netsi-ink: #111111;    /* body text */
+  --netsi-muted: #6b7280;  /* captions, page numbers */
+  --netsi-code-bg: #1e1e1e;
+}
+
+section {
+  font-family: -apple-system, 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 26px;
+  color: var(--netsi-ink);
+  background: #ffffff;
+  padding: 64px 72px;
+}
+
+/* Top-align every CONTENT slide so the title is ALWAYS at the same height.
+   The base theme centers via `place-content: safe center center`, so we override
+   both axes with !important. The :not() keeps the title / divider slides centered. */
+section:not(.title):not(.divider) {
+  justify-content: flex-start !important;
+  align-content: flex-start !important;
+}
+
+h1 {
+  color: var(--netsi-blue);
+  font-size: 52px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin-top: 0;        /* pin the title to the fixed top padding */
+  margin-bottom: 20px;
+}
+
+/* Subtitle: a blockquote right under the h1, styled blue like Minami's decks */
+h1 + blockquote {
+  border: none;
+  margin: 0 0 24px 0;
+  padding: 0;
+  color: var(--netsi-blue);
+  font-size: 30px;
+  font-weight: 400;
+}
+
+h2 { color: var(--netsi-blue); font-size: 38px; font-weight: 700; }
+h3 { color: var(--netsi-ink); font-size: 30px; font-weight: 700; }
+
+a { color: var(--netsi-blue); text-decoration: underline; }
+strong { font-weight: 700; }
+em { font-style: normal; color: var(--netsi-coral); font-weight: 700; }
+
+ul, ol { line-height: 1.5; }
+li { margin: 10px 0; }
+
+/* Center standalone diagram images (cluster anatomy, serial-vs-parallel, agent loop) */
+section img { display: block; margin-left: auto; margin-right: auto; }
+
+/* Center tables horizontally on the slide. Content slides are flex columns, so the table
+   is a flex item: align-self centers it on the cross axis. margin auto covers the block case. */
+section table { margin-left: auto; margin-right: auto; align-self: center; }
+
+code {
+  font-family: 'SFMono-Regular', 'JetBrains Mono', Menlo, Consolas, monospace;
+  font-size: 0.9em;
+}
+
+/* Inline code on the white slide background */
+:not(pre) > code {
+  background: #eef1f6;
+  color: #1a1a1a;
+  padding: 1px 7px;
+  border-radius: 6px;
+}
+
+pre {
+  background: var(--netsi-code-bg);
+  border-radius: 18px;
+  padding: 28px 32px;
+  font-size: 22px;
+  line-height: 1.45;
+}
+
+/* Light-on-dark code. Base text must be light so nothing hides on the dark box. */
+section pre code,
+section pre code.hljs {
+  color: #e6e6e6;
+  background: transparent;
+}
+
+/* Syntax tokens tuned for the dark box (VS Code Dark+ palette) */
+section pre code .hljs-comment,
+section pre code .hljs-quote { color: #7ec699; font-style: italic; }      /* green comments */
+section pre code .hljs-meta { color: #7ec699; }                            /* #SBATCH, shebang */
+section pre code .hljs-built_in,
+section pre code .hljs-attr { color: #4ec9b0; }                            /* commands: ls, cd, git */
+section pre code .hljs-keyword,
+section pre code .hljs-selector-tag,
+section pre code .hljs-literal { color: #569cd6; }
+section pre code .hljs-string,
+section pre code .hljs-symbol { color: #ce9178; }                          /* strings */
+section pre code .hljs-number { color: #b5cea8; }
+section pre code .hljs-title,
+section pre code .hljs-section,
+section pre code .hljs-function .hljs-title { color: #dcdcaa; }
+section pre code .hljs-variable,
+section pre code .hljs-name,
+section pre code .hljs-params { color: #9cdcfe; }
+section pre code .hljs-emphasis { font-style: italic; }
+section pre code .hljs-strong { font-weight: 700; }
+
+/* Page numbers */
+section::after {
+  color: var(--netsi-muted);
+  font-size: 16px;
+}
+
+/* ---- Utility classes (use with Marp's <!-- _class: xyz --> or spans) ---- */
+
+/* Title slide */
+section.title { justify-content: center; text-align: center; }
+section.title h1 { font-size: 60px; }
+section.title .eyebrow { color: var(--netsi-muted); font-size: 26px; }
+
+/* Section divider */
+section.divider { justify-content: center; }
+section.divider h1 { font-size: 64px; }
+
+/* Green "Hands-on Session" pill: put <span class="pill">Hands-on Session</span> */
+.pill {
+  display: inline-block;
+  border: 2px solid var(--netsi-green);
+  color: var(--netsi-green);
+  border-radius: 999px;
+  padding: 4px 18px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* Big stat callout (e.g., 1,024 CPU nodes) */
+.stat { color: var(--netsi-blue); font-size: 68px; font-weight: 800; }
+.coral { color: var(--netsi-coral); font-weight: 700; }
+.caption { color: var(--netsi-muted); font-size: 18px; }
+
+/* Difficulty badge: <span class="level beginner">beginner</span> (one controlled system) */
+.level {
+  display: inline-block;
+  font-size: 0.62em;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 12px;
+  border-radius: 999px;
+  vertical-align: middle;
+  color: #ffffff;
+}
+.level.beginner { background: var(--netsi-green); }
+.level.intermediate { background: var(--netsi-yellow); color: var(--netsi-ink); }
+
+/* Small source / verification footer, pinned bottom-left: <span class="srcnote">...</span> */
+.srcnote {
+  position: absolute;
+  left: 72px;
+  bottom: 26px;
+  color: var(--netsi-muted);
+  font-size: 15px;
+}
+
+/* Screenshot row: <div class="shots"><img ...><img ...></div> (overrides the centered
+   block-image rule so two shots sit side by side, framed) */
+.shots {
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 14px;
+}
+.shots img {
+  display: block;
+  margin: 0;
+  width: 480px;
+  height: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+}
+
+/* Logo pinned to a slide's top-right corner: <img class="cornerlogo" src="..."> */
+.cornerlogo {
+  position: absolute;
+  top: 64px;
+  right: 72px;
+  width: 150px;
+  height: auto;
+  margin: 0;
+}
+
+/* Light brand mark, pinned bottom-center of title / divider slides */
+.brandmark {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 30px;
+  text-align: center;
+  color: var(--netsi-muted);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+.brandmark .accent { color: var(--netsi-coral); }

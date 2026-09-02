@@ -1,0 +1,25 @@
+# Build output
+dist/
+
+# Reference materials kept local only (Minami's 2025 deck + agenda with names): not for the public repo
+references/
+
+# Stray temp
+.tmp/
+
+# Node
+node_modules/
+package-lock.json
+
+# OS
+.DS_Store
+
+# Slurm run artifacts (if students test tracks in-repo)
+hackathon/**/logs/
+hackathon/**/results/
+hackathon/**/figs/
+slurm-*.out
+
+# Python
+__pycache__/
+*.pyc

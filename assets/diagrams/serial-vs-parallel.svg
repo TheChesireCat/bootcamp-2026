@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 380" font-family="-apple-system, Inter, Helvetica, Arial, sans-serif">
+  <style>
+    .lbl { font-size: 26px; font-weight: 700; fill: #111; }
+    .sub { font-size: 16px; fill: #6b7280; }
+    .box { fill: #eef1f6; stroke: #6b7280; stroke-width: 2; }
+    .time { font-size: 26px; font-weight: 700; fill: #111; }
+    .coral { font-size: 26px; font-weight: 800; fill: #e8543f; }
+    .axis { stroke: #111; stroke-width: 3; }
+  </style>
+
+  <!-- Serial -->
+  <text class="lbl" x="20" y="80">Serial</text>
+  <text class="sub" x="20" y="104">1 core</text>
+  <rect class="box" x="180" y="58" width="118" height="44" rx="6"/>
+  <rect class="box" x="304" y="58" width="118" height="44" rx="6"/>
+  <rect class="box" x="428" y="58" width="118" height="44" rx="6"/>
+  <rect class="box" x="552" y="58" width="118" height="44" rx="6"/>
+  <rect class="box" x="676" y="58" width="118" height="44" rx="6"/>
+  <text class="time" x="812" y="88">5 minutes</text>
+
+  <!-- Parallel -->
+  <text class="lbl" x="20" y="228">Parallel</text>
+  <text class="sub" x="20" y="252">5 cores</text>
+  <rect class="box" x="180" y="176" width="118" height="30" rx="6"/>
+  <rect class="box" x="180" y="212" width="118" height="30" rx="6"/>
+  <rect class="box" x="180" y="248" width="118" height="30" rx="6"/>
+  <rect class="box" x="180" y="284" width="118" height="30" rx="6"/>
+  <rect class="box" x="180" y="320" width="118" height="30" rx="6"/>
+  <text class="time" x="330" y="238">1 minute</text>
+  <text class="coral" x="330" y="272">5× faster</text>
+
+  <!-- time axis -->
+  <line class="axis" x1="180" y1="362" x2="792" y2="362"/>
+  <polygon points="792,354 810,362 792,370" fill="#111"/>
+  <text class="sub" x="740" y="352">time</text>
+</svg>

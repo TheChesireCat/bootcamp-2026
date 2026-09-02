@@ -1,0 +1,14 @@
+{
+  "name": "netsi-bootcamp-2026",
+  "version": "0.1.0",
+  "private": true,
+  "description": "NetSI PhD Bootcamp 2026 — Networks on the Cluster + Agentic Computing slides (Marp).",
+  "scripts": {
+    "slides": "marp --config-file ./marp.config.js --input-dir slides -o dist",
+    "pdf": "marp --config-file ./marp.config.js --input-dir slides --pdf -o dist",
+    "watch": "marp --config-file ./marp.config.js --input-dir slides --watch --server"
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "^4.1.2"
+  }
+}
