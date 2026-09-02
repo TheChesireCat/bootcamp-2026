@@ -175,7 +175,9 @@ Rule of thumb: **use Opus for almost everything**, drop to Sonnet only for very 
 
 - Great for a self-contained side task (a review, a focused search)
 - They burn **lots of tokens**, and it grows fast the more you spawn. Use them judiciously
-- Match the model to the job: rename files `▸` Sonnet/Haiku; research overview `▸` Opus
+- Match the model to the job:
+  - rename files `▸` Sonnet/Haiku
+  - research overview `▸` Opus
 
 ---
 
