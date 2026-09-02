@@ -1,0 +1,8 @@
+# Build output
+*.pyc
+__pycache__/
+hackathon/**/logs/
+hackathon/**/results/
+hackathon/**/figs/
+slurm-*.out
+.DS_Store

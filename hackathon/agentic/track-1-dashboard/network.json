@@ -1,0 +1,218 @@
+{
+  "nodes": [
+    {
+      "id": "alice",
+      "degree": 12
+    },
+    {
+      "id": "bob",
+      "degree": 7
+    },
+    {
+      "id": "carol",
+      "degree": 5
+    },
+    {
+      "id": "dave",
+      "degree": 5
+    },
+    {
+      "id": "erin",
+      "degree": 4
+    },
+    {
+      "id": "frank",
+      "degree": 4
+    },
+    {
+      "id": "grace",
+      "degree": 4
+    },
+    {
+      "id": "heidi",
+      "degree": 4
+    },
+    {
+      "id": "ivan",
+      "degree": 4
+    },
+    {
+      "id": "judy",
+      "degree": 4
+    },
+    {
+      "id": "mallory",
+      "degree": 3
+    },
+    {
+      "id": "niaj",
+      "degree": 2
+    },
+    {
+      "id": "olivia",
+      "degree": 2
+    },
+    {
+      "id": "peggy",
+      "degree": 2
+    },
+    {
+      "id": "quinn",
+      "degree": 2
+    },
+    {
+      "id": "rupert",
+      "degree": 2
+    },
+    {
+      "id": "sybil",
+      "degree": 2
+    },
+    {
+      "id": "trent",
+      "degree": 2
+    }
+  ],
+  "links": [
+    {
+      "source": "alice",
+      "target": "bob"
+    },
+    {
+      "source": "alice",
+      "target": "carol"
+    },
+    {
+      "source": "alice",
+      "target": "dave"
+    },
+    {
+      "source": "alice",
+      "target": "erin"
+    },
+    {
+      "source": "alice",
+      "target": "frank"
+    },
+    {
+      "source": "bob",
+      "target": "carol"
+    },
+    {
+      "source": "bob",
+      "target": "dave"
+    },
+    {
+      "source": "bob",
+      "target": "grace"
+    },
+    {
+      "source": "carol",
+      "target": "dave"
+    },
+    {
+      "source": "carol",
+      "target": "heidi"
+    },
+    {
+      "source": "dave",
+      "target": "ivan"
+    },
+    {
+      "source": "erin",
+      "target": "frank"
+    },
+    {
+      "source": "erin",
+      "target": "judy"
+    },
+    {
+      "source": "frank",
+      "target": "grace"
+    },
+    {
+      "source": "grace",
+      "target": "heidi"
+    },
+    {
+      "source": "heidi",
+      "target": "ivan"
+    },
+    {
+      "source": "ivan",
+      "target": "judy"
+    },
+    {
+      "source": "judy",
+      "target": "alice"
+    },
+    {
+      "source": "mallory",
+      "target": "alice"
+    },
+    {
+      "source": "mallory",
+      "target": "bob"
+    },
+    {
+      "source": "mallory",
+      "target": "carol"
+    },
+    {
+      "source": "niaj",
+      "target": "alice"
+    },
+    {
+      "source": "niaj",
+      "target": "dave"
+    },
+    {
+      "source": "olivia",
+      "target": "alice"
+    },
+    {
+      "source": "olivia",
+      "target": "erin"
+    },
+    {
+      "source": "peggy",
+      "target": "bob"
+    },
+    {
+      "source": "peggy",
+      "target": "frank"
+    },
+    {
+      "source": "quinn",
+      "target": "alice"
+    },
+    {
+      "source": "quinn",
+      "target": "grace"
+    },
+    {
+      "source": "rupert",
+      "target": "alice"
+    },
+    {
+      "source": "rupert",
+      "target": "heidi"
+    },
+    {
+      "source": "sybil",
+      "target": "alice"
+    },
+    {
+      "source": "sybil",
+      "target": "ivan"
+    },
+    {
+      "source": "trent",
+      "target": "bob"
+    },
+    {
+      "source": "trent",
+      "target": "judy"
+    }
+  ]
+}
