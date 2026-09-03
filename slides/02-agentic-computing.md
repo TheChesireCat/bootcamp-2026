@@ -48,7 +48,6 @@ Generous NU usage limits. Prefer something else? OpenAI Codex or opencode (open 
 - Same account, same models. Use the GUI to think, the terminal to build
 
 <!-- TODO images: ../assets/screenshots/claude-desktop.png (GUI) and ../assets/screenshots/claude-terminal.png (terminal) -->
-<span class="caption">[ screenshots to add: Claude Desktop (left) and Claude Code in a terminal (right) ]</span>
 
 ---
 
