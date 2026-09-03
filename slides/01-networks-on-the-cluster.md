@@ -428,7 +428,7 @@ You just ran a real parallel study. Now go make it *your own*.
 | **B · GNN on GPU** | <span class="level intermediate">intermediate</span> | `gpu-short` |
 | **C · Big-graph generate & analyze** | <span class="level intermediate">intermediate</span> | CPU (`short`) |
 
-Starter code + step-by-step: **`hackathon/cluster/`**
+Starter code + step-by-step: **[`hackathon/cluster/`](https://github.com/TheChesireCat/bootcamp-2026/tree/main/hackathon/cluster)**
 
 ---
 
@@ -440,7 +440,7 @@ Starter code + step-by-step: **`hackathon/cluster/`**
 - Learn: `--array`, per-task output files, a simulate ▸ plot workflow
 - Everything runs on `short`, no GPU needed
 
-▸ `hackathon/cluster/track-a-parallel-sim/`
+▸ [`hackathon/cluster/track-a-parallel-sim/`](https://github.com/TheChesireCat/bootcamp-2026/tree/main/hackathon/cluster/track-a-parallel-sim)
 
 ---
 
@@ -454,7 +454,7 @@ Same pattern every time: **sweep a parameter, measure a property, plot.**
 - **Robustness:** remove nodes randomly vs by degree, track the largest component
 - **Epidemics:** sweep infection rate, find where outbreaks take off
 
-Full menu with hints: `track-a-parallel-sim/README.md`
+Full menu with hints: [`track-a-parallel-sim/README.md`](https://github.com/TheChesireCat/bootcamp-2026/blob/main/hackathon/cluster/track-a-parallel-sim/README.md)
 
 ---
 
@@ -466,7 +466,7 @@ Full menu with hints: `track-a-parallel-sim/README.md`
 - Request a GPU: `-p gpu-short --gres=gpu:v100-sxm2:1`
 - Learn: GPU jobs, `nvidia-smi`, matching CUDA to your build, CPU fallback
 
-▸ `hackathon/cluster/track-b-gnn-gpu/`
+▸ [`hackathon/cluster/track-b-gnn-gpu/`](https://github.com/TheChesireCat/bootcamp-2026/tree/main/hackathon/cluster/track-b-gnn-gpu)
 
 ---
 
@@ -496,7 +496,7 @@ Explorer mixes old and new cards, the type changes what runs:
 - Learn: scaling with array jobs, memory requests (`--mem`), combining results
 - Watch a task run out of memory, then fix the request
 
-▸ `hackathon/cluster/track-c-big-graph/`
+▸ [`hackathon/cluster/track-c-big-graph/`](https://github.com/TheChesireCat/bootcamp-2026/tree/main/hackathon/cluster/track-c-big-graph)
 
 ---
 

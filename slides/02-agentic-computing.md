@@ -256,7 +256,7 @@ Rule of thumb: **use Opus for almost everything**, drop to Sonnet only for very 
 | **Extend Session 1** | <span class="level intermediate">intermediate</span> | more from your morning's cluster track |
 | **Recreate a paper** | <span class="level intermediate">intermediate</span> | a result from a network science paper |
 
-Prompts, starter files, checklists: **`hackathon/agentic/`**
+Prompts, starter files, checklists: **[`hackathon/agentic/`](https://github.com/TheChesireCat/bootcamp-2026/tree/main/hackathon/agentic)**
 
 ---
 
@@ -268,7 +268,7 @@ Prompts, starter files, checklists: **`hackathon/agentic/`**
 - Plain HTML + JS (vis-network or D3), no build step. Starter `network.json` included
 - Great on-ramp: the focus is the *workflow*, not hand-writing web code
 
-▸ `hackathon/agentic/track-1-dashboard/`
+▸ [`hackathon/agentic/track-1-dashboard/`](https://github.com/TheChesireCat/bootcamp-2026/tree/main/hackathon/agentic/track-1-dashboard)
 
 ---
 
@@ -281,7 +281,7 @@ Prompts, starter files, checklists: **`hackathon/agentic/`**
 - Track C `▸` add an igraph comparison, or push the size ladder higher
 - Practice: a cluster-aware `CLAUDE.md`, `sbatch --test-only`, verify the real job output
 
-▸ `hackathon/agentic/track-2-extend-session1/`
+▸ [`hackathon/agentic/track-2-extend-session1/`](https://github.com/TheChesireCat/bootcamp-2026/tree/main/hackathon/agentic/track-2-extend-session1)
 
 ---
 
@@ -291,7 +291,7 @@ Prompts, starter files, checklists: **`hackathon/agentic/`**
 
 ![w:300](../assets/screenshots/hnm_barabasi.png)
 
-▸ `hackathon/agentic/track-3-recreate-paper/` &nbsp;·&nbsp; arXiv [cond-mat/0206130](https://arxiv.org/abs/cond-mat/0206130)
+▸ [`hackathon/agentic/track-3-recreate-paper/`](https://github.com/TheChesireCat/bootcamp-2026/tree/main/hackathon/agentic/track-3-recreate-paper) &nbsp;·&nbsp; arXiv [cond-mat/0206130](https://arxiv.org/abs/cond-mat/0206130)
 
 ---
 
