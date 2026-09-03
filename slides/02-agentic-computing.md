@@ -117,7 +117,7 @@ Rule of thumb: **use Opus for almost everything**, drop to Sonnet only for very 
 
 - Store your thinking where the agent can read it: notes, half-baked ideas, plans, design docs
 - Text is **versionable, diffable, and agent-native**. A plan in markdown beats a plan in your head
-- ($\LaTeX$ source is text too 😉)
+- $\LaTeX$ source is text too 😉
 
 ---
 
