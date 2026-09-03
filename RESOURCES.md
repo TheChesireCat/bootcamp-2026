@@ -11,6 +11,8 @@ Slides point you here for the full lists. Everything below is a live link.
   partitions, GPUs, modules, and job arrays.
 - [Open OnDemand portal](https://ood.explorer.northeastern.edu) ▸ files, JupyterLab, and job monitoring
   in the browser.
+- **Northeastern IT alerts:** join [`#northeastern-it-status`](https://nunetsi.slack.com/archives/C080CNUT7LK)
+  in Slack for service status and outage updates.
 - **Research Computing help:** email `rchelp@northeastern.edu` when a job is stuck or won't release nodes.
 - This repo's `CLAUDE.md` has the verified 2026 cluster facts (partitions, GPU types, modules).
 
