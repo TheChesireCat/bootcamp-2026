@@ -234,6 +234,10 @@ Rule of thumb: **use Opus for almost everything**, drop to Sonnet only for very 
 
 ---
 
+![bg fit](../assets/screenshots/openai-hf-incident.png)
+
+---
+
 <!-- _class: divider -->
 
 # Part 2: Hackathon
