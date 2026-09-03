@@ -208,7 +208,7 @@ Rule of thumb: **use Opus for almost everything**, drop to Sonnet only for very 
 - **Escape dependency hell** on the cluster (story time: ask Minami)
 - **Debugging?** Use it like Stack Overflow or Google: paste the error, get unstuck
 
-![w:330](../assets/screenshots/stackoverflow_decline.png)
+![bg right:40% fit](../assets/screenshots/stackoverflow_decline.png)
 
 ---
 
@@ -229,7 +229,7 @@ Rule of thumb: **use Opus for almost everything**, drop to Sonnet only for very 
 
 <span class="caption">Karpathy's [autoresearch](https://github.com/karpathy/autoresearch): an agent edits `train.py`, runs ~100 five-minute experiments overnight, keeping the ones that lower validation loss (`val_bpb`).</span>
 
-*Reality check:* it drifts, over-claims, and burns compute. A tireless **assistant you supervise**, not a scientist. Verify everything.
+*Reality check:* it drifts, over-claims, and burns compute. It's an assistant you need to **supervise**; **you** are the scientist. Verify everything.
 
 ---
 

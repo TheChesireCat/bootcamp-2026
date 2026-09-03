@@ -63,7 +63,9 @@ ul, ol { line-height: 1.5; }
 li { margin: 10px 0; }
 
 /* Center standalone diagram images (cluster anatomy, serial-vs-parallel, agent loop) */
-section img { display: block; margin-left: auto; margin-right: auto; }
+section img:not(.emoji) { display: block; margin-left: auto; margin-right: auto; }
+/* Keep emoji (rendered as twemoji <img class="emoji">) inline, not block-centered. */
+section img.emoji { display: inline; width: 1em; height: 1em; margin: 0 0.05em; vertical-align: -0.1em; }
 
 /* Center tables horizontally on the slide. Content slides are flex columns, so the table
    is a flex item: align-self centers it on the cross axis. margin auto covers the block case. */
