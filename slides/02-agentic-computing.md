@@ -195,6 +195,7 @@ Rule of thumb: **use Opus for almost everything**, drop to Sonnet only for very 
 
 - **Explain it at my level:** "like I'm 5 / an undergrad / a postgrad / an expert"
 - **Deep research** (Claude, ChatGPT, Gemini): let it scrape widely and hand you an overview
+- **[NotebookLM](https://notebooklm.google.com)**: drop in your papers, get grounded answers and an audio overview
 - **Starting a topic?** Map the area, name the seminal papers, get a sensible reading order
 - Prompt ideas: [Wharton GenAI prompt library](https://gail.wharton.upenn.edu/prompt-library/)
 
